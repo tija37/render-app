@@ -4,7 +4,7 @@ document.addEventListener("DOMContentLoaded", () => {
   const progressBar = document.getElementById("progress-bar");
 
   let paycheck = 0;
-  const total = 1856;
+  const total = 2399;
   
   function updateProgressBar() {
     const percentage = (paycheck / total) * 100;
