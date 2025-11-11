@@ -17,7 +17,7 @@ document.addEventListener("DOMContentLoaded", () => {
     // Format as YYYY-MM-DDTHH:MM
     const formatDate = (d) => {
       const pad = (n) => String(n).padStart(2, "0");
-      return `${d.getFullYear()}-${pad(d.getMonth() + 1)}-${pad(d.getDate())}T${pad(d.getHours())}:${pad(d.getMinutes())}`;
+      return `${d.getFullYear()}-${pad(d.getMonth() + 1)}-${pad(d.getDate())}T${pad(d.getHours())}:${pad(d.getMinutes())}:${pad(d.getSeconds())}`;
     };
 
     const startStr = formatDate(firstDay);
@@ -37,7 +37,7 @@ document.addEventListener("DOMContentLoaded", () => {
     // Start counter
       intervalId = setInterval(() => {
         paycheck += 0.0036916;
-        output.innerText = paycheck + "€";
+        output.innerText = paycheck.toFixed(5) + "€";
      }, 1000);
 
     } catch (err) {

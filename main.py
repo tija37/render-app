@@ -52,8 +52,8 @@ def working_hours(
             if period_end > period_start:
                 # Add fraction of hours
                 total_hours += (period_end - period_start).total_seconds() / 3600.0
-
+    
         current_day += timedelta(days=1)
-
+    print(total_hours)
     # Round to 2 decimal places for readability
-    return {"working_hours": round(total_hours, 3)}
+    return {"working_hours": round(total_hours, 6)}
