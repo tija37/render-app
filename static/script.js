@@ -36,7 +36,7 @@ document.addEventListener("DOMContentLoaded", () => {
       paycheck = data.working_hours * 13.29;
     // Start counter
       intervalId = setInterval(() => {
-        paycheck += 0.036916;
+        paycheck += 0.0036916;
         output.innerText = paycheck + "€";
      }, 1000);
 
