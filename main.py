@@ -1,14 +1,17 @@
-from typing import Optional
-
 from fastapi import FastAPI
+from fastapi.responses import FileResponse
+from fastapi.staticfiles import StaticFiles
+import os
 
 app = FastAPI()
 
+# Serve static files (frontend)
+app.mount("/static", StaticFiles(directory="static"), name="static")
 
 @app.get("/")
-async def root():
-    return {"message": "Hello World"}
+def serve_index():
+    return FileResponse("static/index.html")
 
-@app.get("/items/{item_id}")
-def read_item(item_id: int, q: Optional[str] = None):
-    return {"item_id": item_id, "q": q}
+@app.get("/api/hello")
+def hello():
+    return {"message": "Hello from FastAPI 🚀"}
