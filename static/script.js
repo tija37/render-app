@@ -1,9 +1,21 @@
 document.addEventListener("DOMContentLoaded", () => {
   const btn = document.getElementById("btn");
   const output = document.getElementById("output");
+  const progressBar = document.getElementById("progress-bar");
 
   let paycheck = 0;
+  const total = 1856;
   
+  function updateProgressBar() {
+    const percentage = (paycheck / total) * 100;
+
+
+    console.log(percentage);
+    // Update progress bar width and text
+    progressBar.style.width = `${percentage}%`;
+    progressBar.innerText = `${Math.round(percentage)}%`;
+  }
+
   btn.addEventListener("click", async () => {
     // Get current date
     const now = new Date();
@@ -39,6 +51,10 @@ document.addEventListener("DOMContentLoaded", () => {
         paycheck += 0.0036916;
         output.innerText = paycheck.toFixed(5) + "€";
      }, 1000);
+
+     intervalId1 = setInterval(() => {
+      updateProgressBar();
+    }, 1000);
 
     } catch (err) {
       output.innerText = "Error: " + err;
